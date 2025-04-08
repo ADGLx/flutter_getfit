@@ -3,6 +3,7 @@ import 'screens/home_tab.dart';
 import 'screens/goals_tab.dart';
 import 'screens/progress_tab.dart';
 import 'screens/settings_tab.dart';
+import 'screens/login_tab.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,10 +32,18 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: _themeMode,
-      home: MyHomePage(
-        changeTheme: _changeTheme,
-        currentThemeMode: _themeMode,
-      ),
+      home: 
+      LoginTab(
+          onLogin: (email, password) {
+            // Handle login logic here
+            print('Login with $email and $password');
+          },
+          onSignUp: () {
+            // Navigate to sign up page
+            print('Navigate to sign up');
+          },
+)
+
     );
   }
 }

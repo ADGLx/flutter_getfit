@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_tab.dart';
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
@@ -23,7 +24,28 @@ class SettingsTab extends StatelessWidget {
           leading: const Icon(Icons.logout, color: Colors.red),
           title: const Text('Logout', style: TextStyle(color: Colors.red)),
           onTap: () {
-            // Add logout functionality
+                  Navigator.of(context).pushReplacement(
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => 
+                        LoginTab( onLogin: (email, password) {
+            // Handle login logic here
+            print('Login with $email and $password');
+          },
+          onSignUp: () {
+            // Navigate to sign up page
+            print('Navigate to sign up');
+          })
+                        
+                        ,
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
+            
           },
         ),
       ],

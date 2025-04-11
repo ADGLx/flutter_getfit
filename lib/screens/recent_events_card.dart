@@ -64,7 +64,7 @@ class Event {
 }
 
 class RecentEventsCard extends StatefulWidget {
-  const RecentEventsCard({Key? key}) : super(key: key);
+  const RecentEventsCard({super.key});
 
   @override
   _RecentEventsCardState createState() => _RecentEventsCardState();
